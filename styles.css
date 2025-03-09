@@ -10,8 +10,8 @@
 /* Default Theme Variables */
 :root {
   --bg-color: #ffffff;
-  --text-color: #222;
-  --accent-color: #d81b60;
+  --text-color: #222222;
+  --accent-color: #1bd870;
   --card-bg: #f5f5f5;
   --nav-bg: rgba(0, 0, 0, 0.05);
   --shadow-color: rgba(0, 0, 0, 0.15);

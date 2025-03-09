@@ -12,6 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
         themeToggle.innerText = theme === "dark" ? "☀️ Light Mode" 
                                 : theme === "mixed" ? "🎨 Mixed Mode" 
                                 : "🌙 Dark Mode";
+                                // Dynamically update the background image
+        document.body.style.backgroundImage = getComputedStyle(document.documentElement) .getPropertyValue("--bg-image");
     }
 
     function detectSystemTheme() {
