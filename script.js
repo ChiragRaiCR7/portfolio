@@ -1,19 +1,47 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // 🌗 Theme Handling
+    console.log("📜 Script loaded and DOM fully parsed!");
+
+    // 🌗 Theme Handling with Dynamic Background Images
     const themeToggle = document.createElement("button");
     themeToggle.id = "theme-toggle";
     document.body.appendChild(themeToggle);
 
     const themes = ["light", "dark", "mixed"];
     
+    // 🎨 Background Images for Themes (Fixing Incorrect Paths)
+    const bgImages = {
+        light: ["assets/images/light1.webp", "assets/images/light2.webp", "assets/images/light3.webp"],
+        dark: ["assets/images/dark1.webp", "assets/images/dark2.webp", "assets/images/dark3.webp"],
+        mixed: ["assets/images/mixed1.webp", "assets/images/mixed2.webp", "assets/images/mixed3.webp"]
+    };
+
+    function getRandomImage(theme) {
+        let images = bgImages[theme] || [];
+        if (images.length === 0) {
+            console.warn(`⚠️ No images found for theme: ${theme}`);
+            return "";
+        }
+        return images[Math.floor(Math.random() * images.length)];
+    }
+
     function applyTheme(theme) {
+        if (!themes.includes(theme)) {
+            console.warn(`⚠️ Invalid theme detected: ${theme}. Resetting to 'light'.`);
+            theme = "light";
+        }
+
         document.documentElement.setAttribute("data-theme", theme);
         localStorage.setItem("theme", theme);
+
+        let bgImage = getRandomImage(theme);
+        document.body.style.backgroundImage = bgImage ? `url('${bgImage}')` : "none";
+
+        console.log(`✅ Applied Theme: ${theme}`);
+        console.log(`🎨 Background Image: ${bgImage}`);
+
         themeToggle.innerText = theme === "dark" ? "☀️ Light Mode" 
                                 : theme === "mixed" ? "🎨 Mixed Mode" 
                                 : "🌙 Dark Mode";
-                                // Dynamically update the background image
-        document.body.style.backgroundImage = getComputedStyle(document.documentElement) .getPropertyValue("--bg-image");
     }
 
     function detectSystemTheme() {
@@ -37,21 +65,28 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
-
     window.addEventListener("scroll", revealElements);
-    revealElements(); // Initial call
+    revealElements();
 
     // 📱 Mobile-Friendly Navigation
     const nav = document.querySelector("nav ul");
-    const menuToggle = document.createElement("button");
-    menuToggle.id = "menu-toggle";
-    menuToggle.innerText = "☰ Menu";
-    document.body.insertBefore(menuToggle, nav);
+    if (nav && nav.parentElement) {  // ✅ Check if nav and its parent exist before inserting
+        const menuToggle = document.createElement("button");
+        menuToggle.id = "menu-toggle";
+        menuToggle.innerText = "☰ Menu";
 
-    menuToggle.addEventListener("click", () => {
-        nav.classList.toggle("open");
-        menuToggle.innerText = nav.classList.contains("open") ? "✖ Close" : "☰ Menu";
-    });
+        // Insert menuToggle before the <nav> element, not inside
+        nav.parentElement.insertBefore(menuToggle, nav);
+
+        menuToggle.addEventListener("click", () => {
+            nav.classList.toggle("open");
+            menuToggle.innerText = nav.classList.contains("open") ? "✖ Close" : "☰ Menu";
+        });
+
+        console.log("✅ Mobile menu initialized.");
+    } else {
+        console.warn("⚠️ Navigation menu (nav ul) not found. Check your HTML structure.");
+    }
 
     // Lazy Loading for Images 🖼️
     const lazyImages = document.querySelectorAll("img[data-src]");
@@ -65,6 +100,5 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }, { rootMargin: "50px" });
-
     lazyImages.forEach(img => imageObserver.observe(img));
 });

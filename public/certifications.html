@@ -7,39 +7,35 @@
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
   <style>
-    /* Certifications Section */
-    #certifications h2 {
-      font-size: 32px;
-      margin-bottom: 20px;
-    }
-    .certification-item h3 {
-      font-size: 24px;
-      margin-bottom: 8px;
-    }
-
-    .certification-item p {
+    /* Verify Certification Button */
+    .verify-btn {
+      display: block;
+      width: fit-content;
+      padding: 12px 18px;
+      margin: 15px auto;
+      background: #ff4081;
+      color: white;
       font-size: 16px;
-      margin: 4px 0;
-    }
-
-    .certification-item a {
       font-weight: 600;
+      border-radius: 6px;
       text-decoration: none;
-      transition: color 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+      text-align: center;
     }
 
-    .certification-item a:hover {
-      color: #ff4081;
+    .verify-btn:hover {
+      background: #c2185b;
+      transform: scale(1.05);
     }
 
     /* Back Button */
     .back-home {
-      margin-top: 20px;
+      margin-top: 30px;
     }
 
     .btn {
       display: inline-block;
-      padding: 10px 16px;
+      padding: 12px 18px;
       background: #d81b60;
       color: white;
       text-decoration: none;
@@ -50,11 +46,12 @@
 
     .btn:hover {
       transform: scale(1.05);
+      background: #b0003a;
     }
 
     /* Footer */
     footer {
-      margin-top: 30px;
+      margin-top: 40px;
       font-size: 14px;
       color: #666;
     }
@@ -70,10 +67,10 @@
       <p><strong>Issued Date:</strong> October 3, 2023</p>
       <p><strong>Valid Until:</strong> October 3, 2026</p>
       <p><strong>Verification Code:</strong> KF8RG82CX11EQLST</p>
-      <p>
-        <strong>Verification Link:</strong> 
-        <a href="https://aws.amazon.com/verification" target="_blank">Verify Certification</a>
-      </p>
+      
+      <a href="https://aws.amazon.com/verification" target="_blank" class="verify-btn">
+        Verify Certification 🔗
+      </a>
     </div>
   </section>
 

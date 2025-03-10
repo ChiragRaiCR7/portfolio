@@ -7,14 +7,15 @@
     <link rel="stylesheet" href="styles.css">
     <script defer src="script.js"></script>
 </head>
-<body>z
+<body>
     <header>
         <h1>Chirag Rai</h1>
         <p>A motivated Python Developer with expertise in Machine Learning and Cloud Computing</p>
+        <button id="menu-toggle" aria-label="Toggle Navigation">☰</button>
     </header>
 
     <nav>
-        <ul>
+        <ul id="nav-menu">
             <li><a href="./public/about.html">About Me</a></li>
             <li><a href="./public/education.html">Education</a></li>
             <li><a href="./public/projects.html">Projects</a></li>
@@ -25,7 +26,7 @@
     </nav>
 
     <main>
-        <section id="summary">
+        <section id="summary" class="fade-in">
             <h2>Summary</h2>
             <p>
                 A motivated Python Developer with a strong foundation in RESTful API development, cloud deployment, and Machine Learning. 
@@ -34,17 +35,17 @@
             </p>
         </section>
 
-        <section id="education">
+        <section id="education" class="fade-in">
             <h2>Education</h2>
             <p>
                 <strong>B.Tech in Computer Science & Business System</strong><br>
                 Meghnad Saha Institute of Technology (2020 – 2024)<br>
-                Maintained a CGPA of 8.81 while actively participating in the Accounting Society.<br>
+                Maintained a CGPA of 8.81 while actively participating in the different activites.<br>
                 <strong>Relevant Coursework:</strong> Operating Systems, Machine Learning, Cloud Computing, DBMS.
             </p>
         </section>
 
-        <section id="projects">
+        <section id="projects" class="fade-in">
             <h2>Projects</h2>
             <article>
                 <h3>Lung Cancer Risk Prediction Model</h3>
@@ -62,7 +63,7 @@
             </article>
         </section>
 
-        <section id="skills">
+        <section id="skills" class="fade-in">
             <h2>Skills</h2>
             <ul>
                 <li>Python (Machine Learning, API Development)</li>
@@ -74,7 +75,7 @@
             </ul>
         </section>
 
-        <section id="contact">
+        <section id="contact" class="fade-in">
             <h2>Contact Me</h2>
             <div class="contact-links">
                 <a href="mailto:chiragraicr7@gmail.com" class="btn">📧 Email</a>
