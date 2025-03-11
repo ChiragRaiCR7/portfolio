@@ -1,0 +1,58 @@
+name: "CodeQL Advanced Security Analysis"
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  schedule:
+    - cron: '45 18 * * 0'  # Every Sunday at 18:45 UTC
+    - cron: '45 18 * * 3'  # Additional scan on Wednesday
+
+jobs:
+  analyze:
+    name: "CodeQL Analysis - ${{ matrix.language }}"
+    runs-on: ${{ matrix.language == 'swift' && 'macos-latest' || 'ubuntu-latest' }}
+
+    permissions:
+      security-events: write
+      packages: read
+      actions: read
+      contents: read
+
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [javascript-typescript, python, java, cpp]  # Expanded for more languages
+        build-mode: [none, manual]  # Supports both "none" & "manual" builds
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v3
+      with:
+        languages: ${{ matrix.language }}
+        build-mode: ${{ matrix.build-mode }}
+        queries: security-extended,security-and-quality  # Enabling deeper security analysis
+
+    - name: Build Code (If Required)
+      if: matrix.build-mode == 'manual'
+      shell: bash
+      run: |
+        echo "🛠️ Running manual build..."
+        # Example build commands (Modify based on your project)
+        if [ -f "Makefile" ]; then
+          make build
+        elif [ -f "package.json" ]; then
+          npm install && npm run build
+        else
+          echo "⚠️ No recognized build process found!"
+          exit 1
+        fi
+
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v3
+      with:
+        category: "/language:${{ matrix.language }}"

@@ -7,14 +7,30 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.appendChild(themeToggle);
 
     const themes = ["light", "dark", "mixed"];
-    
-    // 🎨 Background Images for Themes (Fixing Incorrect Paths)
+
+    // 🎨 Background Images for Themes
     const bgImages = {
         light: ["assets/images/light1.webp", "assets/images/light2.webp", "assets/images/light3.webp"],
         dark: ["assets/images/dark1.webp", "assets/images/dark2.webp", "assets/images/dark3.webp"],
         mixed: ["assets/images/mixed1.webp", "assets/images/mixed2.webp", "assets/images/mixed3.webp"]
     };
+function isStorageAvailable() {
+    try {
+        let test = "__test__";
+        localStorage.setItem(test, test);
+        localStorage.removeItem(test);
+        return true;
+    } catch (e) {
+        return false;
+    }
+}
 
+if (isStorageAvailable()) {
+    let currentTheme = localStorage.getItem("theme") || detectSystemTheme();
+    applyTheme(currentTheme);
+} else {
+    console.warn("⚠️ LocalStorage is not available. Theme will reset on reload.");
+}
     function getRandomImage(theme) {
         let images = bgImages[theme] || [];
         if (images.length === 0) {
@@ -70,25 +86,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 📱 Mobile-Friendly Navigation
     const nav = document.querySelector("nav ul");
-    if (nav && nav.parentElement) {  // ✅ Check if nav and its parent exist before inserting
+    const navWrapper = document.querySelector("nav");
+
+    if (nav && navWrapper) {
         const menuToggle = document.createElement("button");
         menuToggle.id = "menu-toggle";
         menuToggle.innerText = "☰ Menu";
+        menuToggle.setAttribute("aria-expanded", "false"); // Accessibility
 
-        // Insert menuToggle before the <nav> element, not inside
-        nav.parentElement.insertBefore(menuToggle, nav);
+        navWrapper.insertBefore(menuToggle, nav);
 
         menuToggle.addEventListener("click", () => {
-            nav.classList.toggle("open");
-            menuToggle.innerText = nav.classList.contains("open") ? "✖ Close" : "☰ Menu";
+            const isOpen = nav.classList.toggle("open");
+            menuToggle.innerText = isOpen ? "✖ Close" : "☰ Menu";
+            menuToggle.setAttribute("aria-expanded", isOpen);
         });
 
-        console.log("✅ Mobile menu initialized.");
+        console.log("✅ Mobile menu initialized and working!");
     } else {
         console.warn("⚠️ Navigation menu (nav ul) not found. Check your HTML structure.");
     }
 
-    // Lazy Loading for Images 🖼️
+    // 🖼️ Lazy Loading for Images
     const lazyImages = document.querySelectorAll("img[data-src]");
     const imageObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
@@ -100,5 +119,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }, { rootMargin: "50px" });
+
     lazyImages.forEach(img => imageObserver.observe(img));
 });
