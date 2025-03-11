@@ -33,16 +33,17 @@ body {
   color: var(--text-color);
   transition: background 0.3s ease, color 0.3s ease;
   line-height: 1.6;
+  padding: 0 15px;
 }
 
 /* Header */
 header {
   text-align: center;
-  padding: 30px 15px;
+  padding: 25px 15px;
 }
 
 header h1 {
-  font-size: 36px;
+  font-size: 34px;
   font-weight: 800;
   background: linear-gradient(to right, var(--accent-color), #9c27b0);
   -webkit-background-clip: text;
@@ -53,7 +54,6 @@ header p {
   font-size: 16px;
   max-width: 750px;
   margin: 10px auto;
-  padding: 0 15px;
 }
 
 /* Navigation */
@@ -90,7 +90,7 @@ nav ul li a:hover {
   transform: scale(1.08);
 }
 
-/* Mobile Navigation */
+/* 🌟 Mobile Navigation Enhancements */
 #menu-toggle {
   display: none;
   background: var(--accent-color);
@@ -99,10 +99,11 @@ nav ul li a:hover {
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 18px;
   position: fixed;
-  top: 20px;
-  left: 20px;
+  top: 15px;
+  left: 15px;
+  z-index: 1001;
 }
 
 .mobile-nav {
@@ -116,11 +117,13 @@ nav ul li a:hover {
   background: var(--card-bg);
   box-shadow: 5px 0 15px var(--shadow-color);
   padding: 20px;
-  transition: left 0.4s ease-in-out;
+  transition: left 0.3s ease-in-out;
+  z-index: 1000;
 }
 
 .mobile-nav.open {
   left: 0;
+  display: flex;
 }
 
 .mobile-nav ul {
@@ -168,8 +171,8 @@ h2 {
 /* Theme Toggle Button */
 #theme-toggle {
   position: fixed;
-  top: 20px;
-  right: 20px;
+  top: 15px;
+  right: 15px;
   background: var(--accent-color);
   color: white;
   border: none;
@@ -178,6 +181,7 @@ h2 {
   cursor: pointer;
   font-size: 14px;
   transition: transform 0.3s, background 0.3s;
+  z-index: 1001;
 }
 
 #theme-toggle:hover {
@@ -208,13 +212,9 @@ h2 {
   transform: scale(1.08);
 }
 
-/* Responsive Design */
+/* ✅ Better Responsive Design */
 @media (max-width: 768px) {
-  /* Reduce margins and padding */
-  body {
-    padding: 0 10px;
-  }
-
+  /* Adjust Header */
   header h1 {
     font-size: 28px;
   }
@@ -227,13 +227,14 @@ h2 {
   section {
     max-width: 100%;
     padding: 15px;
+    box-shadow: none; /* Reduce shadow for mobile */
   }
 
   h2 {
     font-size: 22px;
   }
 
-  /* Adjust Navigation */
+  /* Improve Mobile Navigation */
   nav {
     display: none;
   }
@@ -242,14 +243,14 @@ h2 {
     display: block;
   }
 
-  /* Improve Buttons */
+  /* Reduce Button Size */
   .btn {
     font-size: 14px;
     padding: 8px 12px;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 280px) {
   header h1 {
     font-size: 24px;
   }
@@ -262,9 +263,16 @@ h2 {
     font-size: 20px;
   }
 
-  /* Smaller Buttons */
+  /* Adjust Smaller Buttons */
   .btn {
     font-size: 12px;
     padding: 6px 10px;
+  }
+
+  /* Ensure theme button doesn't overlap */
+  #theme-toggle {
+    right: 10px;
+    top: 10px;
+    padding: 8px 12px;
   }
 }
