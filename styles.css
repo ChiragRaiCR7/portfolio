@@ -12,7 +12,7 @@
   --bg-color: #ffffff;
   --text-color: #222222;
   --accent-color: #1bd870;
-  --card-bg: #f5f5f5;
+  --card-bg: rgba(255, 255, 255, 0.9);
   --nav-bg: rgba(0, 0, 0, 0.05);
   --shadow-color: rgba(0, 0, 0, 0.15);
 }
@@ -22,14 +22,13 @@
   --bg-color: #121212;
   --text-color: #f5f5f5;
   --accent-color: #ff4081;
-  --card-bg: #1e1e1e;
+  --card-bg: rgba(30, 30, 30, 0.9);
   --nav-bg: rgba(255, 255, 255, 0.1);
   --shadow-color: rgba(0, 0, 0, 0.6);
 }
-
-/* 🌞 Dynamic Background Adjustments */
+/* 🎨 Full-Page Background Image */
 body {
-  background: var(--bg-color);
+  background: var(--bg-color) url('background.jpg') no-repeat center center/cover;
   color: var(--text-color);
   transition: background 0.3s ease, color 0.3s ease;
   line-height: 1.6;
@@ -146,13 +145,12 @@ nav ul li a:hover {
   color: var(--accent-color);
 }
 
-/* Sections */
+/* Ensure Sections Have Transparent Background */
 section {
-  max-width: 850px;
-  margin: 20px auto;
+  background: var(--card-bg);
+  backdrop-filter: blur(8px); /* Adds a slight blur effect */
   padding: 20px;
   border-radius: 10px;
-  background: var(--card-bg);
   box-shadow: 0 5px 15px var(--shadow-color);
   transition: transform 0.3s;
 }
@@ -188,7 +186,6 @@ h2 {
   transform: scale(1.1);
   background: #9c27b0;
 }
-
 /* Contact Section */
 .contact-links {
   display: flex;
