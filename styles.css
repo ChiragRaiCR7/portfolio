@@ -6,39 +6,47 @@
   font-family: 'Inter', sans-serif;
   scroll-behavior: smooth;
 }
-
 /* Default Theme Variables */
 :root {
   --bg-color: #ffffff;
-  --text-color: #222222;
-  --accent-color: #1bd870;
-  --card-bg: rgba(255, 255, 255, 0.9);
-  --nav-bg: rgba(0, 0, 0, 0.05);
+  --text-color: #222;
+  --accent-color: #d81b60;
+  --card-bg: #f9f9f9;
+  --nav-bg: rgba(0, 0, 0, 0.07);
   --shadow-color: rgba(0, 0, 0, 0.15);
 }
 
-/* 🌙 Dark Mode */
+/* Dark Mode */
 [data-theme="dark"] {
   --bg-color: #121212;
   --text-color: #f5f5f5;
   --accent-color: #ff4081;
-  --card-bg: rgba(30, 30, 30, 0.9);
+  --card-bg: #1e1e1e;
   --nav-bg: rgba(255, 255, 255, 0.1);
   --shadow-color: rgba(0, 0, 0, 0.6);
 }
-/* 🎨 Full-Page Background Image */
+
+/* Mixed Theme (Fun Gradient) */
+[data-theme="mixed"] {
+  --bg-color: linear-gradient(135deg, #222, #f5f5f5);
+  --text-color: #333;
+  --accent-color: #00bcd4;
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --nav-bg: rgba(0, 0, 0, 0.2);
+
+/* Background Styling */
 body {
-  background: var(--bg-color) url('background.jpg') no-repeat center center/cover;
+  background: var(--bg-color) url('background.jpg') no-repeat center center fixed;
+  background-size: cover;
   color: var(--text-color);
   transition: background 0.3s ease, color 0.3s ease;
-  line-height: 1.6;
-  padding: 0 15px;
+  line-height: 1.7;
 }
 
 /* Header */
 header {
   text-align: center;
-  padding: 25px 15px;
+  padding: 50px 20px;
 }
 
 header h1 {
