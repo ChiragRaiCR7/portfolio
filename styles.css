@@ -6,17 +6,18 @@
   font-family: 'Inter', sans-serif;
   scroll-behavior: smooth;
 }
+
 /* Default Theme Variables */
 :root {
   --bg-color: #ffffff;
-  --text-color: #222;
-  --accent-color: #d81b60;
-  --card-bg: #f9f9f9;
-  --nav-bg: rgba(0, 0, 0, 0.07);
+  --text-color: #222222;
+  --accent-color: #1bd870;
+  --card-bg: #f5f5f5;
+  --nav-bg: rgba(0, 0, 0, 0.05);
   --shadow-color: rgba(0, 0, 0, 0.15);
 }
 
-/* Dark Mode */
+/* 🌙 Dark Mode (Lighter Text, Dark Background) */
 [data-theme="dark"] {
   --bg-color: #121212;
   --text-color: #f5f5f5;
@@ -26,17 +27,34 @@
   --shadow-color: rgba(0, 0, 0, 0.6);
 }
 
-/* Mixed Theme (Fun Gradient) */
+/* 🎨 Mixed Theme (Gradient Background, Vibrant Colors) */
 [data-theme="mixed"] {
   --bg-color: linear-gradient(135deg, #222, #f5f5f5);
-  --text-color: #333;
-  --accent-color: #00bcd4;
-  --card-bg: rgba(255, 255, 255, 0.9);
+  --text-color: #ff0077; /* Bright Pink */
+  --accent-color: #00bcd4; /* Cyan */
+  --card-bg: rgba(255, 255, 255, 0.8);
   --nav-bg: rgba(0, 0, 0, 0.2);
+  --shadow-color: rgba(0, 0, 0, 0.3);
+}
 
-/* Background Styling */
+/* 🌞 Dynamic Background Adjustments */
+body[data-theme="light"] {
+  --text-color: #222; /* Dark Text */
+  --accent-color: #007bff; /* Blue */
+}
+
+body[data-theme="dark"] {
+  --text-color: #f5f5f5; /* Light Text */
+  --accent-color: #ffcc00; /* Yellow */
+}
+
+body[data-theme="mixed"] {
+  --text-color: linear-gradient(to right, #ff0077, #00bcd4);
+}
+
+/* Background */
 body {
-  background: var(--bg-color) url('background.jpg') no-repeat center center fixed;
+  background: var(--bg-color);
   background-size: cover;
   color: var(--text-color);
   transition: background 0.3s ease, color 0.3s ease;
@@ -46,11 +64,11 @@ body {
 /* Header */
 header {
   text-align: center;
-  padding: 50px 20px;
+  padding: 40px 20px;
 }
 
 header h1 {
-  font-size: 34px;
+  font-size: 40px;
   font-weight: 800;
   background: linear-gradient(to right, var(--accent-color), #9c27b0);
   -webkit-background-clip: text;
@@ -58,15 +76,15 @@ header h1 {
 }
 
 header p {
-  font-size: 16px;
+  font-size: 18px;
   max-width: 750px;
   margin: 10px auto;
 }
 
 /* Navigation */
 nav {
-  display: flex;
-  justify-content: center;
+  text-align: center;
+  margin: 10px 0;
   background: var(--nav-bg);
   padding: 12px;
   border-radius: 10px;
@@ -74,14 +92,14 @@ nav {
   box-shadow: 0 4px 8px var(--shadow-color);
 }
 
-/* Desktop Navigation */
 nav ul {
   display: flex;
+  justify-content: center;
   list-style: none;
 }
 
 nav ul li {
-  margin: 0 12px;
+  margin: 0 15px;
 }
 
 nav ul li a {
@@ -97,68 +115,13 @@ nav ul li a:hover {
   transform: scale(1.08);
 }
 
-/* 🌟 Mobile Navigation Enhancements */
-#menu-toggle {
-  display: none;
-  background: var(--accent-color);
-  color: white;
-  padding: 10px 14px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 18px;
-  position: fixed;
-  top: 15px;
-  left: 15px;
-  z-index: 1001;
-}
-
-.mobile-nav {
-  display: none;
-  flex-direction: column;
-  position: fixed;
-  top: 0;
-  left: -100%;
-  width: 70%;
-  height: 100%;
-  background: var(--card-bg);
-  box-shadow: 5px 0 15px var(--shadow-color);
-  padding: 20px;
-  transition: left 0.3s ease-in-out;
-  z-index: 1000;
-}
-
-.mobile-nav.open {
-  left: 0;
-  display: flex;
-}
-
-.mobile-nav ul {
-  list-style: none;
-  padding: 0;
-}
-
-.mobile-nav ul li {
-  margin: 15px 0;
-}
-
-.mobile-nav ul li a {
-  font-size: 18px;
-  color: var(--text-color);
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.mobile-nav ul li a:hover {
-  color: var(--accent-color);
-}
-
-/* Ensure Sections Have Transparent Background */
+/* Sections */
 section {
-  background: var(--card-bg);
-  backdrop-filter: blur(8px); /* Adds a slight blur effect */
-  padding: 20px;
+  max-width: 850px;
+  margin: 20px auto;
+  padding: 25px;
   border-radius: 10px;
+  background: var(--card-bg);
   box-shadow: 0 5px 15px var(--shadow-color);
   transition: transform 0.3s;
 }
@@ -168,17 +131,17 @@ section:hover {
 }
 
 h2 {
-  font-size: 26px;
+  font-size: 28px;
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   color: var(--accent-color);
 }
 
 /* Theme Toggle Button */
 #theme-toggle {
   position: fixed;
-  top: 15px;
-  right: 15px;
+  top: 20px;
+  right: 20px;
   background: var(--accent-color);
   color: white;
   border: none;
@@ -187,20 +150,31 @@ h2 {
   cursor: pointer;
   font-size: 14px;
   transition: transform 0.3s, background 0.3s;
-  z-index: 1001;
 }
 
 #theme-toggle:hover {
   transform: scale(1.1);
   background: #9c27b0;
 }
+
+/* Fade-in Animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* Contact Section */
 .contact-links {
   display: flex;
   justify-content: center;
   gap: 15px;
   margin-top: 10px;
-  flex-wrap: wrap;
 }
 
 .btn {
@@ -217,67 +191,37 @@ h2 {
   transform: scale(1.08);
 }
 
-/* ✅ Better Responsive Design */
+/* Responsive Navigation */
+#menu-toggle {
+  display: none;
+  background: var(--accent-color);
+  color: white;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+}
+
 @media (max-width: 768px) {
-  /* Adjust Header */
-  header h1 {
-    font-size: 28px;
+  nav ul {
+      display: none;
+      flex-direction: column;
+      background: var(--nav-bg);
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      padding: 10px 0;
   }
 
-  header p {
-    font-size: 14px;
-    padding: 0 10px;
-  }
-
-  section {
-    max-width: 100%;
-    padding: 15px;
-    box-shadow: none; /* Reduce shadow for mobile */
-  }
-
-  h2 {
-    font-size: 22px;
-  }
-
-  /* Improve Mobile Navigation */
-  nav {
-    display: none;
+  nav ul.open {
+      display: flex;
   }
 
   #menu-toggle {
-    display: block;
-  }
-
-  /* Reduce Button Size */
-  .btn {
-    font-size: 14px;
-    padding: 8px 12px;
-  }
-}
-
-@media (max-width: 280px) {
-  header h1 {
-    font-size: 24px;
-  }
-
-  header p {
-    font-size: 13px;
-  }
-
-  h2 {
-    font-size: 20px;
-  }
-
-  /* Adjust Smaller Buttons */
-  .btn {
-    font-size: 12px;
-    padding: 6px 10px;
-  }
-
-  /* Ensure theme button doesn't overlap */
-  #theme-toggle {
-    right: 10px;
-    top: 10px;
-    padding: 8px 12px;
+      display: block;
   }
 }
