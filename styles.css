@@ -33,16 +33,17 @@ body {
   color: var(--text-color);
   transition: background 0.3s ease, color 0.3s ease;
   line-height: 1.6;
+  padding: 0 12px;
 }
 
 /* Header */
 header {
   text-align: center;
-  padding: 30px 15px;
+  padding: 25px 15px;
 }
 
 header h1 {
-  font-size: 36px;
+  font-size: 34px;
   font-weight: 800;
   background: linear-gradient(to right, var(--accent-color), #9c27b0);
   -webkit-background-clip: text;
@@ -53,7 +54,7 @@ header p {
   font-size: 16px;
   max-width: 750px;
   margin: 10px auto;
-  padding: 0 15px;
+  padding: 0 12px;
 }
 
 /* Navigation */
@@ -103,20 +104,22 @@ nav ul li a:hover {
   position: fixed;
   top: 20px;
   left: 20px;
+  z-index: 1500;
 }
 
 .mobile-nav {
-  display: none;
+  display: flex;
   flex-direction: column;
   position: fixed;
   top: 0;
   left: -100%;
-  width: 70%;
+  width: 75%;
   height: 100%;
   background: var(--card-bg);
   box-shadow: 5px 0 15px var(--shadow-color);
   padding: 20px;
   transition: left 0.4s ease-in-out;
+  z-index: 1000;
 }
 
 .mobile-nav.open {
@@ -126,6 +129,7 @@ nav ul li a:hover {
 .mobile-nav ul {
   list-style: none;
   padding: 0;
+  text-align: center;
 }
 
 .mobile-nav ul li {
@@ -210,9 +214,12 @@ h2 {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  /* Reduce margins and padding */
   body {
-    padding: 0 10px;
+    padding: 0 8px;
+  }
+
+  header {
+    padding: 20px 10px;
   }
 
   header h1 {
@@ -221,7 +228,7 @@ h2 {
 
   header p {
     font-size: 14px;
-    padding: 0 10px;
+    padding: 0 8px;
   }
 
   section {
@@ -233,13 +240,32 @@ h2 {
     font-size: 22px;
   }
 
-  /* Adjust Navigation */
+  /* 🛠 Fix Mobile Navigation */
   nav {
     display: none;
   }
 
   #menu-toggle {
     display: block;
+  }
+
+  .mobile-nav {
+    display: flex;
+    left: -100%;
+    width: 75%;
+    z-index: 1000;
+  }
+
+  .mobile-nav.open {
+    left: 0;
+  }
+
+  /* Adjust Theme Toggle Button */
+  #theme-toggle {
+    top: 15px;
+    right: 15px;
+    padding: 8px 12px;
+    font-size: 13px;
   }
 
   /* Improve Buttons */
@@ -262,9 +288,15 @@ h2 {
     font-size: 20px;
   }
 
-  /* Smaller Buttons */
+  /* Smaller buttons for better fit */
   .btn {
     font-size: 12px;
     padding: 6px 10px;
+  }
+
+  /* Ensure menu button is easy to tap */
+  #menu-toggle {
+    font-size: 15px;
+    padding: 12px;
   }
 }
