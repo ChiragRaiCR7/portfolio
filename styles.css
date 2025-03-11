@@ -7,28 +7,31 @@
   scroll-behavior: smooth;
 }
 
-/* Theme Variables */
+/* Default Theme Variables */
 :root {
   --bg-color: #ffffff;
-  --text-color: #222;
+  --text-color: #222222;
   --accent-color: #1bd870;
   --card-bg: #f5f5f5;
+  --nav-bg: rgba(0, 0, 0, 0.05);
   --shadow-color: rgba(0, 0, 0, 0.15);
 }
 
+/* 🌙 Dark Mode */
 [data-theme="dark"] {
   --bg-color: #121212;
   --text-color: #f5f5f5;
   --accent-color: #ff4081;
   --card-bg: #1e1e1e;
+  --nav-bg: rgba(255, 255, 255, 0.1);
   --shadow-color: rgba(0, 0, 0, 0.6);
 }
 
-/* Body */
+/* 🌞 Dynamic Background Adjustments */
 body {
   background: var(--bg-color);
   color: var(--text-color);
-  transition: background 0.3s, color 0.3s;
+  transition: background 0.3s ease, color 0.3s ease;
   line-height: 1.6;
 }
 
@@ -57,11 +60,14 @@ header p {
 nav {
   display: flex;
   justify-content: center;
+  background: var(--nav-bg);
   padding: 12px;
   border-radius: 10px;
+  backdrop-filter: blur(10px);
   box-shadow: 0 4px 8px var(--shadow-color);
 }
 
+/* Desktop Navigation */
 nav ul {
   display: flex;
   list-style: none;
@@ -89,7 +95,7 @@ nav ul li a:hover {
   display: none;
   background: var(--accent-color);
   color: white;
-  padding: 10px;
+  padding: 10px 14px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -97,10 +103,11 @@ nav ul li a:hover {
   position: fixed;
   top: 20px;
   left: 20px;
-  z-index: 1000;
 }
 
 .mobile-nav {
+  display: none;
+  flex-direction: column;
   position: fixed;
   top: 0;
   left: -100%;
@@ -109,9 +116,7 @@ nav ul li a:hover {
   background: var(--card-bg);
   box-shadow: 5px 0 15px var(--shadow-color);
   padding: 20px;
-  transition: left 0.4s;
-  display: flex;
-  flex-direction: column;
+  transition: left 0.4s ease-in-out;
 }
 
 .mobile-nav.open {
@@ -160,7 +165,7 @@ h2 {
   color: var(--accent-color);
 }
 
-/* Theme Toggle */
+/* Theme Toggle Button */
 #theme-toggle {
   position: fixed;
   top: 20px;
@@ -168,7 +173,7 @@ h2 {
   background: var(--accent-color);
   color: white;
   border: none;
-  padding: 10px;
+  padding: 10px 14px;
   border-radius: 8px;
   cursor: pointer;
   font-size: 14px;
@@ -180,11 +185,12 @@ h2 {
   background: #9c27b0;
 }
 
-/* Contact Buttons */
+/* Contact Section */
 .contact-links {
   display: flex;
   justify-content: center;
   gap: 15px;
+  margin-top: 10px;
   flex-wrap: wrap;
 }
 
@@ -204,6 +210,7 @@ h2 {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  /* Reduce margins and padding */
   body {
     padding: 0 10px;
   }
@@ -214,6 +221,7 @@ h2 {
 
   header p {
     font-size: 14px;
+    padding: 0 10px;
   }
 
   section {
@@ -225,6 +233,7 @@ h2 {
     font-size: 22px;
   }
 
+  /* Adjust Navigation */
   nav {
     display: none;
   }
@@ -233,6 +242,7 @@ h2 {
     display: block;
   }
 
+  /* Improve Buttons */
   .btn {
     font-size: 14px;
     padding: 8px 12px;
@@ -252,13 +262,9 @@ h2 {
     font-size: 20px;
   }
 
+  /* Smaller Buttons */
   .btn {
     font-size: 12px;
     padding: 6px 10px;
-  }
-
-  #menu-toggle {
-    font-size: 15px;
-    padding: 12px;
   }
 }
