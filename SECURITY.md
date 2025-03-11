@@ -2,20 +2,41 @@
 
 ## Supported Versions
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+The following table outlines which versions of this project currently receive security updates:
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+| Version | Supported?         |
+|---------|-------------------|
+| 5.1.x   | ✅ Yes             |
+| 5.0.x   | ❌ No              |
+| 4.0.x   | ✅ Yes             |
+| < 4.0   | ❌ No              |
+
+Older versions (below 4.0) **no longer receive security updates**. We strongly recommend upgrading to a supported version for security patches and stability.
+
+---
 
 ## Reporting a Vulnerability
 
-Use this section to tell people how to report a vulnerability.
+We take security vulnerabilities seriously. If you discover a security issue, please follow these steps to report it:
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+1. **Contact us privately**  
+   - Do **not** disclose the issue publicly.  
+   - Email us at **[chiragraicr7@gamil@gmail.com](mailto:chiragraicr7@gamil.com)** with details about the vulnerability.
+
+2. **Provide detailed information**  
+   - A clear description of the issue.  
+   - Steps to reproduce the vulnerability.  
+   - Potential security impact.
+
+3. **Response Timeline**  
+   - You will receive an acknowledgment within **48 hours**.  
+   - We will assess and validate the issue within **7 days**.  
+   - If confirmed, a security patch will be released in **15-30 days** (depending on complexity).  
+
+4. **Public Disclosure**  
+   - Once a fix is deployed, we will **publicly disclose** the issue and credit the reporter (if they wish).  
+
+---
+
+### 🔐 **Your security matters!**  
+We appreciate responsible disclosures and your efforts to help keep our project secure. 🚀  
