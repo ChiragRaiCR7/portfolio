@@ -28,23 +28,13 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      # OPTIONAL: If your project requires a build step, uncomment this section
-      # - name: Setup Node.js
-      #   uses: actions/setup-node@v4
-      #   with:
-      #     node-version: "20"
-      #     cache: "npm"
-
-      # - name: Install dependencies
-      #   run: npm install
-
-      # - name: Build the project
-      #   run: npm run build  # Adjust based on your framework
+      - name: Debug Repository Structure
+        run: ls -R  # Helps verify the correct deployment path
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './public'  # Change this to your build output directory (e.g., dist, out, build)
+          path: '.'  # Adjust based on the actual file structure
 
       - name: Deploy to GitHub Pages
         id: deployment
