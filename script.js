@@ -70,24 +70,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 📱 Mobile-Friendly Navigation
     const nav = document.querySelector("nav ul");
-    if (nav && nav.parentElement) {  // ✅ Check if nav and its parent exist before inserting
+    const navWrapper = document.querySelector("nav");
+
+    if (nav && navWrapper) {
         const menuToggle = document.createElement("button");
         menuToggle.id = "menu-toggle";
         menuToggle.innerText = "☰ Menu";
+        menuToggle.setAttribute("aria-expanded", "false"); // Accessibility
 
-        // Insert menuToggle before the <nav> element, not inside
-        nav.parentElement.insertBefore(menuToggle, nav);
+        // Insert menuToggle inside the navWrapper
+        navWrapper.insertBefore(menuToggle, nav);
 
         menuToggle.addEventListener("click", () => {
-            nav.classList.toggle("open");
-            menuToggle.innerText = nav.classList.contains("open") ? "✖ Close" : "☰ Menu";
+            const isOpen = nav.classList.toggle("open");
+            menuToggle.innerText = isOpen ? "✖ Close" : "☰ Menu";
+            menuToggle.setAttribute("aria-expanded", isOpen);
         });
 
-        console.log("✅ Mobile menu initialized.");
+        console.log("✅ Mobile menu initialized and working!");
     } else {
         console.warn("⚠️ Navigation menu (nav ul) not found. Check your HTML structure.");
     }
-
+            });
     // Lazy Loading for Images 🖼️
     const lazyImages = document.querySelectorAll("img[data-src]");
     const imageObserver = new IntersectionObserver((entries, observer) => {
