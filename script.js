@@ -14,7 +14,23 @@ document.addEventListener("DOMContentLoaded", () => {
         dark: ["assets/images/dark1.webp", "assets/images/dark2.webp", "assets/images/dark3.webp"],
         mixed: ["assets/images/mixed1.webp", "assets/images/mixed2.webp", "assets/images/mixed3.webp"]
     };
+function isStorageAvailable() {
+    try {
+        let test = "__test__";
+        localStorage.setItem(test, test);
+        localStorage.removeItem(test);
+        return true;
+    } catch (e) {
+        return false;
+    }
+}
 
+if (isStorageAvailable()) {
+    let currentTheme = localStorage.getItem("theme") || detectSystemTheme();
+    applyTheme(currentTheme);
+} else {
+    console.warn("⚠️ LocalStorage is not available. Theme will reset on reload.");
+}
     function getRandomImage(theme) {
         let images = bgImages[theme] || [];
         if (images.length === 0) {
