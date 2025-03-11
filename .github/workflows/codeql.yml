@@ -1,0 +1,52 @@
+name: "CodeQL Advanced Security Analysis"
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  schedule:
+    - cron: '45 18 * * 0'  # Runs every Sunday at 18:45 UTC
+
+jobs:
+  analyze:
+    name: "CodeQL Analysis - ${{ matrix.language }}"
+    runs-on: ${{ matrix.language == 'swift' && 'macos-latest' || 'ubuntu-latest' }}
+
+    permissions:
+      security-events: write
+      packages: read  # Required for fetching private CodeQL packs
+      actions: read   # Required for private repo workflows
+      contents: read  # Required for accessing the repository contents
+
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [javascript-typescript, python, java-kotlin]  # Extendable for more languages
+        build-mode: [none]  # Modify if a compiled language is added
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v3
+      with:
+        languages: ${{ matrix.language }}
+        build-mode: ${{ matrix.build-mode }}
+        # Extend this if you wish to run custom security queries.
+        # Example: security-extended, security-and-quality
+        # queries: security-extended,security-and-quality
+
+    - name: Build Code (If Required)
+      if: matrix.build-mode == 'manual'
+      shell: bash
+      run: |
+        echo "⚠️ Manual build mode detected. Please configure your build commands."
+        echo "Example: make bootstrap && make release"
+        exit 1
+
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v3
+      with:
+        category: "/language:${{ matrix.language }}"
