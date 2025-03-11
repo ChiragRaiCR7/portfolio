@@ -7,43 +7,39 @@
   scroll-behavior: smooth;
 }
 
-/* Default Theme Variables */
+/* Theme Variables */
 :root {
   --bg-color: #ffffff;
-  --text-color: #222222;
+  --text-color: #222;
   --accent-color: #1bd870;
   --card-bg: #f5f5f5;
-  --nav-bg: rgba(0, 0, 0, 0.05);
   --shadow-color: rgba(0, 0, 0, 0.15);
 }
 
-/* 🌙 Dark Mode */
 [data-theme="dark"] {
   --bg-color: #121212;
   --text-color: #f5f5f5;
   --accent-color: #ff4081;
   --card-bg: #1e1e1e;
-  --nav-bg: rgba(255, 255, 255, 0.1);
   --shadow-color: rgba(0, 0, 0, 0.6);
 }
 
-/* 🌞 Dynamic Background Adjustments */
+/* Body */
 body {
   background: var(--bg-color);
   color: var(--text-color);
-  transition: background 0.3s ease, color 0.3s ease;
+  transition: background 0.3s, color 0.3s;
   line-height: 1.6;
-  padding: 0 12px;
 }
 
 /* Header */
 header {
   text-align: center;
-  padding: 25px 15px;
+  padding: 30px 15px;
 }
 
 header h1 {
-  font-size: 34px;
+  font-size: 36px;
   font-weight: 800;
   background: linear-gradient(to right, var(--accent-color), #9c27b0);
   -webkit-background-clip: text;
@@ -54,21 +50,18 @@ header p {
   font-size: 16px;
   max-width: 750px;
   margin: 10px auto;
-  padding: 0 12px;
+  padding: 0 15px;
 }
 
 /* Navigation */
 nav {
   display: flex;
   justify-content: center;
-  background: var(--nav-bg);
   padding: 12px;
   border-radius: 10px;
-  backdrop-filter: blur(10px);
   box-shadow: 0 4px 8px var(--shadow-color);
 }
 
-/* Desktop Navigation */
 nav ul {
   display: flex;
   list-style: none;
@@ -96,7 +89,7 @@ nav ul li a:hover {
   display: none;
   background: var(--accent-color);
   color: white;
-  padding: 10px 14px;
+  padding: 10px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -104,22 +97,21 @@ nav ul li a:hover {
   position: fixed;
   top: 20px;
   left: 20px;
-  z-index: 1500;
+  z-index: 1000;
 }
 
 .mobile-nav {
-  display: flex;
-  flex-direction: column;
   position: fixed;
   top: 0;
   left: -100%;
-  width: 75%;
+  width: 70%;
   height: 100%;
   background: var(--card-bg);
   box-shadow: 5px 0 15px var(--shadow-color);
   padding: 20px;
-  transition: left 0.4s ease-in-out;
-  z-index: 1000;
+  transition: left 0.4s;
+  display: flex;
+  flex-direction: column;
 }
 
 .mobile-nav.open {
@@ -129,7 +121,6 @@ nav ul li a:hover {
 .mobile-nav ul {
   list-style: none;
   padding: 0;
-  text-align: center;
 }
 
 .mobile-nav ul li {
@@ -169,7 +160,7 @@ h2 {
   color: var(--accent-color);
 }
 
-/* Theme Toggle Button */
+/* Theme Toggle */
 #theme-toggle {
   position: fixed;
   top: 20px;
@@ -177,7 +168,7 @@ h2 {
   background: var(--accent-color);
   color: white;
   border: none;
-  padding: 10px 14px;
+  padding: 10px;
   border-radius: 8px;
   cursor: pointer;
   font-size: 14px;
@@ -189,12 +180,11 @@ h2 {
   background: #9c27b0;
 }
 
-/* Contact Section */
+/* Contact Buttons */
 .contact-links {
   display: flex;
   justify-content: center;
   gap: 15px;
-  margin-top: 10px;
   flex-wrap: wrap;
 }
 
@@ -215,11 +205,7 @@ h2 {
 /* Responsive Design */
 @media (max-width: 768px) {
   body {
-    padding: 0 8px;
-  }
-
-  header {
-    padding: 20px 10px;
+    padding: 0 10px;
   }
 
   header h1 {
@@ -228,7 +214,6 @@ h2 {
 
   header p {
     font-size: 14px;
-    padding: 0 8px;
   }
 
   section {
@@ -240,7 +225,6 @@ h2 {
     font-size: 22px;
   }
 
-  /* 🛠 Fix Mobile Navigation */
   nav {
     display: none;
   }
@@ -249,26 +233,6 @@ h2 {
     display: block;
   }
 
-  .mobile-nav {
-    display: flex;
-    left: -100%;
-    width: 75%;
-    z-index: 1000;
-  }
-
-  .mobile-nav.open {
-    left: 0;
-  }
-
-  /* Adjust Theme Toggle Button */
-  #theme-toggle {
-    top: 15px;
-    right: 15px;
-    padding: 8px 12px;
-    font-size: 13px;
-  }
-
-  /* Improve Buttons */
   .btn {
     font-size: 14px;
     padding: 8px 12px;
@@ -288,13 +252,11 @@ h2 {
     font-size: 20px;
   }
 
-  /* Smaller buttons for better fit */
   .btn {
     font-size: 12px;
     padding: 6px 10px;
   }
 
-  /* Ensure menu button is easy to tap */
   #menu-toggle {
     font-size: 15px;
     padding: 12px;
