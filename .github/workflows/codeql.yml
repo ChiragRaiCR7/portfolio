@@ -6,7 +6,8 @@ on:
   pull_request:
     branches: [ "main" ]
   schedule:
-    - cron: '45 18 * * 0'  # Runs every Sunday at 18:45 UTC
+    - cron: '45 18 * * 0'  # Every Sunday at 18:45 UTC
+    - cron: '45 18 * * 3'  # Additional scan on Wednesday
 
 jobs:
   analyze:
@@ -15,15 +16,15 @@ jobs:
 
     permissions:
       security-events: write
-      packages: read  # Required for fetching private CodeQL packs
-      actions: read   # Required for private repo workflows
-      contents: read  # Required for accessing the repository contents
+      packages: read
+      actions: read
+      contents: read
 
     strategy:
       fail-fast: false
       matrix:
-        language: [javascript-typescript]  # Extendable for more languages
-        build-mode: [none]  # Modify if a compiled language is added
+        language: [javascript-typescript, python, java, cpp]  # Expanded for more languages
+        build-mode: [none, manual]  # Supports both "none" & "manual" builds
 
     steps:
     - name: Checkout Repository
@@ -34,17 +35,22 @@ jobs:
       with:
         languages: ${{ matrix.language }}
         build-mode: ${{ matrix.build-mode }}
-        # Extend this if you wish to run custom security queries.
-        # Example: security-extended, security-and-quality
-        # queries: security-extended,security-and-quality
+        queries: security-extended,security-and-quality  # Enabling deeper security analysis
 
     - name: Build Code (If Required)
       if: matrix.build-mode == 'manual'
       shell: bash
       run: |
-        echo "⚠️ Manual build mode detected. Please configure your build commands."
-        echo "Example: make bootstrap && make release"
-        exit 1
+        echo "🛠️ Running manual build..."
+        # Example build commands (Modify based on your project)
+        if [ -f "Makefile" ]; then
+          make build
+        elif [ -f "package.json" ]; then
+          npm install && npm run build
+        else
+          echo "⚠️ No recognized build process found!"
+          exit 1
+        fi
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
