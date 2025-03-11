@@ -7,8 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.appendChild(themeToggle);
 
     const themes = ["light", "dark", "mixed"];
-    
-    // 🎨 Background Images for Themes (Fixing Incorrect Paths)
+
+    // 🎨 Background Images for Themes
     const bgImages = {
         light: ["assets/images/light1.webp", "assets/images/light2.webp", "assets/images/light3.webp"],
         dark: ["assets/images/dark1.webp", "assets/images/dark2.webp", "assets/images/dark3.webp"],
@@ -78,7 +78,6 @@ document.addEventListener("DOMContentLoaded", () => {
         menuToggle.innerText = "☰ Menu";
         menuToggle.setAttribute("aria-expanded", "false"); // Accessibility
 
-        // Insert menuToggle inside the navWrapper
         navWrapper.insertBefore(menuToggle, nav);
 
         menuToggle.addEventListener("click", () => {
@@ -91,8 +90,8 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         console.warn("⚠️ Navigation menu (nav ul) not found. Check your HTML structure.");
     }
-            });
-    // Lazy Loading for Images 🖼️
+
+    // 🖼️ Lazy Loading for Images
     const lazyImages = document.querySelectorAll("img[data-src]");
     const imageObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
@@ -104,5 +103,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }, { rootMargin: "50px" });
+
     lazyImages.forEach(img => imageObserver.observe(img));
 });
