@@ -225,3 +225,17 @@ h2 {
       display: block;
   }
 }
+/* Show menu on mobile */
+@media (max-width: 268px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .menu {
+        display: flex;
+    }
+
+    .menu.active {
+        display: flex;
+    }
+}
