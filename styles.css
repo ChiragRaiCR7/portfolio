@@ -86,7 +86,7 @@ nav {
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000;
+    z-index: 400;
     background: var(--nav-bg);
     padding: 12px 0;
     box-shadow: 0 4px 6px var(--shadow-color);
@@ -118,6 +118,8 @@ nav ul li a:hover {
 
 /* Sections */
 section {
+    max-width: 850px;
+    margin: 20px auto;
     position: relative;
     z-index: 1;
     margin-top: 20px;
@@ -125,8 +127,8 @@ section {
     border-radius: 10px;
     background: var(--card-bg);
     box-shadow: 0 5px 15px var(--shadow-color);
+    transition: transform 0.3s;
 }
-
 section:hover {
   transform: translateY(-5px);
 }
@@ -185,6 +187,7 @@ h2 {
   border-radius: 8px;
   text-decoration: none;
   transition: 0.3s;
+  z-index: 500;
 }
 
 .btn:hover {
