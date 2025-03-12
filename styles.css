@@ -227,30 +227,21 @@ h2 {
 }
 /* Show menu on mobile */
 @media (max-width: 268px) {
-.menu-toggle {
-    position: fixed; /* Keep it fixed on top */
-    top: 10px;
-    left: 10px;
-    z-index: 9999; /* Ensure it stays above other elements */
-    font-size: 24px;
-    background: #ff0077;
-    border: none;
-    color: white;
-    padding: 10px;
-    cursor: pointer;
-}
-    .menu {
-        position: fixed;
-        top: 50px;
-        left: 0;
-        width: 100%;
-        background: #333;
-        z-index: 1000;
-    }
-  .modal, .tab {
-    z-index: 500; /* Lower than menu */
-}
-    .menu.active {
-        display: flex;
-    }
+  nav ul {
+      display: none;
+      flex-direction: column;
+      background: var(--nav-bg);
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      padding: 10px 0;
+  }
+
+  nav ul.open {
+      display: flex;
+  }
+
+  #menu-toggle {
+      display: block;
+  }
 }
