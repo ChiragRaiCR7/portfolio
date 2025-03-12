@@ -197,7 +197,7 @@ h2 {
   display: none !important;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 78px) {
   nav ul {
       display: none;
       flex-direction: column;
@@ -216,7 +216,7 @@ h2 {
       display: block;
   }
 }
-/* Responsive Design for Small Screens */
+/* 
 @media (max-width: 268px) {
   nav ul {
     flex-direction: column;
@@ -224,3 +224,4 @@ h2 {
     text-align: center;
   }
 }
+ */
