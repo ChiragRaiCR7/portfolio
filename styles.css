@@ -93,8 +93,9 @@ nav {
 }
 
 nav ul {
-  display: flex;
+  display: flex !important; 
   justify-content: center;
+  gap: 20px;
   list-style: none;
 }
 
@@ -191,19 +192,9 @@ h2 {
   transform: scale(1.08);
 }
 
-/* Responsive Navigation */
+/* 🔥 Remove Mobile Menu Toggle */
 #menu-toggle {
-  display: none;
-  background: var(--accent-color);
-  color: white;
-  padding: 10px 14px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 16px;
-  position: fixed;
-  top: 20px;
-  left: 20px;
+  display: none !important;
 }
 
 @media (max-width: 768px) {
@@ -225,23 +216,11 @@ h2 {
       display: block;
   }
 }
-
+/* Responsive Design for Small Screens */
 @media (max-width: 268px) {
   nav ul {
-      display: none;
-      flex-direction: column;
-      background: var(--nav-bg);
-      position: absolute;
-      width: 100%;
-      text-align: center;
-      padding: 10px 0;
-  }
-
-  nav ul.open {
-      display: flex;
-  }
-
-  #menu-toggle {
-      display: block;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
   }
 }
