@@ -81,15 +81,15 @@ header p {
   margin: 10px auto;
 }
 
-/* Navigation */
 nav {
-  text-align: center;
-  margin: 10px 0;
-  background: var(--nav-bg);
-  padding: 12px;
-  border-radius: 10px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 8px var(--shadow-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: var(--nav-bg);
+    padding: 12px 0;
+    box-shadow: 0 4px 6px var(--shadow-color);
 }
 
 nav ul {
@@ -118,13 +118,13 @@ nav ul li a:hover {
 
 /* Sections */
 section {
-  max-width: 850px;
-  margin: 20px auto;
-  padding: 25px;
-  border-radius: 10px;
-  background: var(--card-bg);
-  box-shadow: 0 5px 15px var(--shadow-color);
-  transition: transform 0.3s;
+    position: relative;
+    z-index: 1;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background: var(--card-bg);
+    box-shadow: 0 5px 15px var(--shadow-color);
 }
 
 section:hover {
@@ -196,32 +196,40 @@ h2 {
 #menu-toggle {
   display: none !important;
 }
+@media (max-width: 768px) {
+    /* Ensure menu is always visible */
+    nav {
+        padding: 14px 0;
+        height: auto;
+    }
 
-@media (max-width: 78px) {
-  nav ul {
-      display: none;
-      flex-direction: column;
-      background: var(--nav-bg);
-      position: absolute;
-      width: 100%;
-      text-align: center;
-      padding: 10px 0;
-  }
+    /* Ensure content does not block the menu */
+    main {
+        margin-top: 90px; /* Ensures enough space below nav */
+    }
 
-  nav ul.open {
-      display: flex;
-  }
+    /* Fix text and buttons spacing */
+    header {
+        padding-top: 100px; /* Adjust header spacing to avoid content overlap */
+    }
 
-  #menu-toggle {
-      display: block;
-  }
+    section {
+        padding: 15px;
+        margin-top: 15px;
+    }
 }
-/* 
-@media (max-width: 268px) {
-  nav ul {
-    flex-direction: column;
-    gap: 10px;
-    text-align: center;
-  }
+/* Specific Fix for Smallest Screens (375px - 450px width) */
+@media (max-width: 450px) {
+    main {
+        margin-top: 95px; /* Push content further down */
+    }
+    
+    header {
+        padding-top: 110px;
+    }
+
+    section {
+        padding: 12px;
+        margin-top: 12px;
+    }
 }
- */
