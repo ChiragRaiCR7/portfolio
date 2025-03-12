@@ -106,7 +106,13 @@ if (isStorageAvailable()) {
     } else {
         console.warn("⚠️ Navigation menu (nav ul) not found. Check your HTML structure.");
     }
+    document.querySelector(".menu-toggle").addEventListener("click", () => {
+    document.querySelector(".menu").classList.toggle("active");
 
+    // Close any open modal or tab
+    document.querySelector(".modal")?.classList.remove("active");
+});
+    
     // 🖼️ Lazy Loading for Images
     const lazyImages = document.querySelectorAll("img[data-src]");
     const imageObserver = new IntersectionObserver((entries, observer) => {
