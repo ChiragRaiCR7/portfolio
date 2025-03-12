@@ -82,7 +82,7 @@ header p {
 }
 
 nav {
-    position: fixed;
+    position: flexible;
     top: 0;
     left: 0;
     width: 100%;
