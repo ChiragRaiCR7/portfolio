@@ -225,23 +225,3 @@ h2 {
       display: block;
   }
 }
-/* Show menu on mobile */
-@media (max-width: 268px) {
-  nav ul {
-      display: none;
-      flex-direction: column;
-      background: var(--nav-bg);
-      position: absolute;
-      width: 100%;
-      text-align: center;
-      padding: 10px 0;
-  }
-
-  nav ul.open {
-      display: flex;
-  }
-
-  #menu-toggle {
-      display: block;
-  }
-}
