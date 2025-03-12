@@ -29,12 +29,12 @@
 
 /* 🎨 Mixed Theme (Gradient Background, Vibrant Colors) */
 [data-theme="mixed"] {
-  --bg-color: linear-gradient(135deg, #222, #f5f5f5);
-  --text-color: #001afffa; /* Bright Pink */
-  --accent-color: #a4c026; /* Cyan */
-  --card-bg: rgba(255, 255, 255, 0.8);
-  --nav-bg: rgba(0, 0, 0, 0.2);
-  --shadow-color: rgba(0, 0, 0, 0.3);
+  --bg-color: linear-gradient(135deg, #121212, #3a3a3a); /* Dark gradient */
+  --text-color: #ffffff; /* Pure White for high contrast */
+  --accent-color: #ffcc00; /* Vibrant Gold for highlights */
+  --card-bg: rgba(20, 20, 20, 0.9); /* Darker card for contrast */
+  --nav-bg: rgba(30, 30, 30, 0.8); /* Slightly opaque dark nav */
+  --shadow-color: rgba(0, 0, 0, 0.6); /* Stronger shadows */
 }
 
 /* 🌞 Dynamic Background Adjustments */
@@ -49,9 +49,8 @@ body[data-theme="dark"] {
 }
 
 body[data-theme="mixed"] {
-  --text-color: linear-gradient(to right, #001afffa, #a4c026);
+  --text-color: linear-gradient(to right, #ffcc00, #ff5733); /* Warm Orange-Red gradient */
 }
-
 /* Background */
 body {
   background: var(--bg-color);
