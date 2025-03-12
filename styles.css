@@ -232,14 +232,16 @@ h2 {
     }
 
     .menu {
-        position: absolute;
+        position: fixed;
         top: 50px;
         left: 0;
         width: 100%;
         background: #333;
         z-index: 1000;
     }
-
+  .modal, .tab {
+    z-index: 500; /* Lower than menu */
+}
     .menu.active {
         display: flex;
     }
