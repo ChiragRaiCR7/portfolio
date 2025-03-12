@@ -201,7 +201,7 @@ h2 {
 @media (max-width: 768px) {
     /* Ensure menu is always visible */
     nav {
-        padding: 14px 0;
+        padding: 4px 0;
         height: auto;
     }
 
@@ -209,7 +209,10 @@ h2 {
     main {
         margin-top: 90px; /* Ensures enough space below nav */
     }
-
+      nav ul {
+        flex-direction: column; /* Stack items for very small screens */
+        gap: 5px;
+    }
     /* Fix text and buttons spacing */
     header {
         padding-top: 100px; /* Adjust header spacing to avoid content overlap */
@@ -225,9 +228,17 @@ h2 {
     main {
         margin-top: 95px; /* Push content further down */
     }
-    
+    nav {
+        padding: 4px 0;
+        height: auto;
+    }
+
     header {
         padding-top: 110px;
+    }
+    nav ul {
+        flex-direction: column; /* Stack items for very small screens */
+        gap: 5px;
     }
 
     section {
