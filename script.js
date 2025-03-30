@@ -83,8 +83,7 @@ if (isStorageAvailable()) {
     }
     window.addEventListener("scroll", revealElements);
     revealElements();
-
-    // 📱 Mobile-Friendly Navigation
+        // 📱 Mobile-Friendly Navigation
     const nav = document.querySelector("nav ul");
     const navWrapper = document.querySelector("nav");
 
@@ -106,6 +105,12 @@ if (isStorageAvailable()) {
     } else {
         console.warn("⚠️ Navigation menu (nav ul) not found. Check your HTML structure.");
     }
+    document.querySelector(".menu-toggle").addEventListener("click", () => {
+    document.querySelector(".menu").classList.toggle("active");
+
+    // Close any open modal or tab
+    document.querySelector(".modal")?.classList.remove("active");
+});
 
     // 🖼️ Lazy Loading for Images
     const lazyImages = document.querySelectorAll("img[data-src]");

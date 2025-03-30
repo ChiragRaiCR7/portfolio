@@ -14,13 +14,16 @@
     <script defer src="script.js"></script>
 </head>
 <body>
+
     <header>
         <h1>Chirag Rai</h1>
         <p>A motivated Python Developer with expertise in Machine Learning and Cloud Computing</p>
     </header>
+
+    <!-- Mobile-friendly Navigation -->
     <nav>
-         <button id="menu-toggle" aria-label="Toggle Navigation">☰</button>
-        <ul id="nav-menu">
+        <button id="menu-toggle" aria-label="Toggle Navigation">☰</button>
+        <ul id="menu">
             <li><a href="./public/about.html">About Me</a></li>
             <li><a href="./public/education.html">Education</a></li>
             <li><a href="./public/projects.html">Projects</a></li>
@@ -45,7 +48,7 @@
             <p>
                 <strong>B.Tech in Computer Science & Business System</strong><br>
                 Meghnad Saha Institute of Technology (2020 – 2024)<br>
-                Maintained a CGPA of 8.81 while actively participating in the different activites.<br>
+                Maintained a CGPA of 8.81 while actively participating in different activities.<br>
                 <strong>Relevant Coursework:</strong> Operating Systems, Machine Learning, Cloud Computing, DBMS.
             </p>
         </section>
@@ -93,5 +96,14 @@
     <footer>
         <p>© Chirag Rai. All rights reserved.</p>
     </footer>
+
+    <script>
+        // JavaScript for Mobile Menu Toggle
+        document.getElementById("menu-toggle").addEventListener("click", function() {
+            var menu = document.getElementById("nav-menu");
+            menu.classList.toggle("show");
+        });
+    </script>
+
 </body>
 </html>
