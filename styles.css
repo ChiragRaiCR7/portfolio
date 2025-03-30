@@ -26,17 +26,6 @@
   --nav-bg: rgba(255, 255, 255, 0.1);
   --shadow-color: rgba(0, 0, 0, 0.6);
 }
-<<<<<<< HEAD
-[data-theme="mixed"] {
-  --bg-color: linear-gradient(135deg, #222, #f5f5f5);
-  --text-color: #00ffc8fa; /* Bright Pink */
-  --accent-color: #a4c026; /* Cyan */
-  --card-bg: rgba(255, 255, 255, 0.8);
-  --nav-bg: rgba(0, 0, 0, 0.2);
-  --shadow-color: rgba(0, 0, 0, 0.3);
-}
-/* Body */
-=======
 
 /* 🎨 Mixed Theme (Gradient Background, Vibrant Colors) */
 [data-theme="mixed"] {
@@ -63,7 +52,6 @@ body[data-theme="mixed"] {
   --text-color: linear-gradient(to right, #ffcc00, #ff5733); /* Warm Orange-Red gradient */
 }
 /* Background */
->>>>>>> c1a3f0e774fe2454ad04ad28bcca5d4cca22096a
 body {
   background: var(--bg-color);
   background-size: cover;
