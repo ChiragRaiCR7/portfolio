@@ -1,42 +1,92 @@
-# Security Policy
+# 🔒 Security Policy
 
-## Supported Versions
+## 🌟 Supported Versions
 
-The following table outlines which versions of this project currently receive security updates:
+This project follows **continuous deployment** with security-focused updates. The main branch always receives security updates:
 
-| Version | Supported?         |
-|---------|-------------------|
-| 5.1.x   | ✅ Yes             |
-| 5.0.x   | ❌ No              |
-| 4.0.x   | ✅ Yes             |
-| < 4.0   | ❌ No              |
+| Deployment | Supported?          | Security Updates Until |
+|------------|---------------------|------------------------|
+| Production | ✅ Yes (Active)     | Ongoing                |
+| Staging    | ✅ Yes (Testing)    | 30 days after deploy   |
+| Archive    | ❌ No (Read-only)   | N/A                    |
 
-Older versions (below 4.0) **no longer receive security updates**. We strongly recommend upgrading to a supported version for security patches and stability.
-
----
-
-## Reporting a Vulnerability
-
-We take security vulnerabilities seriously. If you discover a security issue, please follow these steps to report it:
-
-1. **Contact us privately**  
-   - Do **not** disclose the issue publicly.  
-   - Email us at **[chiragraicr7@gamil@gmail.com](mailto:chiragraicr7@gamil.com)** with details about the vulnerability.
-
-2. **Provide detailed information**  
-   - A clear description of the issue.  
-   - Steps to reproduce the vulnerability.  
-   - Potential security impact.
-
-3. **Response Timeline**  
-   - You will receive an acknowledgment within **48 hours**.  
-   - We will assess and validate the issue within **7 days**.  
-   - If confirmed, a security patch will be released in **15-30 days** (depending on complexity).  
-
-4. **Public Disclosure**  
-   - Once a fix is deployed, we will **publicly disclose** the issue and credit the reporter (if they wish).  
+We recommend always using the latest deployed version for optimal security.
 
 ---
 
-### 🔐 **Your security matters!**  
-We appreciate responsible disclosures and your efforts to help keep our project secure. 🚀  
+## 🚨 Reporting a Vulnerability
+
+**Your expertise makes us safer!** Please responsibly disclose vulnerabilities via:
+
+✉️ **Preferred Method**:  
+[security@chiragrai.dev](mailto:security@chiragrai.dev) (PGP Key available [here](/security.pgp))  
+*Please prefix subject with "[SECURITY]"*
+
+🔒 **Alternative**:  
+Use GitHub's [Private Vulnerability Reporting](https://github.com/ChiragRaiCR7/portfolio/security/advisories)
+
+### What to Include:
+- Detailed vulnerability description
+- Proof-of-Concept (PoC) steps
+- Impact assessment
+- Suggested remediation (optional)
+- Disclosure preferences
+
+---
+
+## 🔄 Our Response Process
+
+1. **Acknowledgment**  
+   - Initial response within **24-48 hours**
+
+2. **Investigation**  
+   - Triage within **3 business days**
+
+3. **Resolution**  
+   - Critical issues: Patch within **72 hours**  
+   - High severity: Patch within **7 days**  
+   - Medium/Low: Next scheduled update
+
+4. **Disclosure**  
+   - Public advisory after patch deployment
+   - Credit unless requested otherwise
+
+---
+
+## 🛡️ Security Practices
+
+### Development Standards
+- Regular dependency audits (Dependabot-enabled)
+- Static code analysis (CodeQL/SonarCloud)
+- OWASP Top 10 compliance
+- HTTPS enforced (TLS 1.3+ only)
+
+### Scope Considerations
+**In-Scope**  
+- Authentication flaws
+- Data exposure risks
+- Injection vulnerabilities
+- Critical dependency CVEs
+
+**Out-of-Scope**  
+- Theoretical vulnerabilities
+- UI/UX bugs without security impact
+- Social engineering attacks
+
+---
+
+## 🙏 Recognition Program
+
+We gratefully recognize security researchers through:
+
+- Public acknowledgment in [SECURITY.md](/SECURITY.md)
+- Profile badge on project README
+- Letter of recommendation (upon request)
+
+---
+
+## 📜 Policy Updates
+
+This policy is reviewed quarterly. Last updated: **2024-03-15**
+
+[View Changelog](/SECURITY_CHANGELOG.md) | [View Compliance Certs](/COMPLIANCE.md)
